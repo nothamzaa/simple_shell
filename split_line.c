@@ -1,19 +1,24 @@
 #include "shell.h"
 
-char **tokenize_line(char *line)
+/**
+ * split_line - Splits line into tokens
+ * @line: Command line input from user
+ * Return: Returns tokens
+ */
+
+char **split_line(char *line)
 {
-    int bufsize = 64;
-    int position = 0;
+    int bufsize = BUFSIZE, position = 0;
     char **tokens = malloc(bufsize * sizeof(char *));
     char *token;
 
     if (!tokens)
     {
-        perror("malloc");
+        perror("Could not allocate memory\n");
         exit(EXIT_FAILURE);
     }
 
-    token = strtok(line, " \t\r\n\a");
+    token = strtok(line, " ");
     while (token != NULL)
     {
         tokens[position] = token;
@@ -21,18 +26,16 @@ char **tokenize_line(char *line)
 
         if (position >= bufsize)
         {
-            bufsize += 64;
+            bufsize += BUFSIZE;
             tokens = realloc(tokens, bufsize * sizeof(char *));
             if (!tokens)
             {
-                perror("realloc");
+                perror("Could not allocate memory\n");
                 exit(EXIT_FAILURE);
             }
         }
-
-        token = strtok(NULL, " \t\r\n\a");
+        token = strtok(NULL, " ");
     }
     tokens[position] = NULL;
-
-    return tokens;
+    return (tokens);
 }
