@@ -11,10 +11,10 @@
 int main(int argc, char **argv)
 {
 	char *cmdline = NULL;
-	char **cmdargs;
 	char prompt[] = "(hsh) ";
 	Bool status = true;
 
+	(void)argc; /* Silence unused parameter warning */
 	name = (argc > 0) ? argv[0] : NULL;
 
 	while (status)
@@ -23,6 +23,8 @@ int main(int argc, char **argv)
 		cmdline = get_user_input();
 		/* Process the command */
 	}
+
+	free(cmdline); /* Remember to free dynamically allocated memory */
 
 	return 0;
 }

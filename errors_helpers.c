@@ -7,7 +7,7 @@
  */
 void readline_error(void)
 {
-	char *err = strcat(strcat(name, ": "), READLINE_ERROR);
+	char *err = strcat(strcat(name, ": "), "error while reading input\n");
 
 	write(STDERR_FILENO, err, strlen(err));
 	exit(EXIT_FAILURE);
