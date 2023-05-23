@@ -12,47 +12,21 @@ int main(void)
     int status;
 
     do {
-        input = read_input();
+        display_prompt();  // Display the prompt
+        input = read_input();  // Read user input
+
         if (input != NULL) {
-            args = parse_input(input);
-            status = execute_command(args);
+            args = parse_input(input);  // Parse the input into tokens
+            if (args != NULL) {
+                status = execute_command(args);  // Execute the command
+
+                free(args);
+            } else {
+                status = 1;  // Invalid input, continue to next iteration
+            }
 
             free(input);
-            free(args);
+        } else {
+            status = 0;  // Exit the shell on end of file condition (Ctrl+D)
         }
-    } while (status);
-
-    return EXIT_SUCCESS;
-}
-
-/**
- * read_input - Read user input from stdin
- *
- * Return: Pointer to the input string
- */
-char *read_input(void)
-{
-    /* Implementation */
-}
-
-/**
- * parse_input - Parse the user input into tokens
- * @input: Input string
- *
- * Return: Array of tokens
- */
-char **parse_input(char *input)
-{
-    /* Implementation */
-}
-
-/**
- * execute_command - Execute the command with arguments
- * @args: Array of command arguments
- *
- * Return: Status of the execution
- */
-int execute_command(char **args)
-{
-    /* Implementation */
-}
+    }
