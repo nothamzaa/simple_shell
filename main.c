@@ -1,94 +1,51 @@
 #include "main.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
+#define MAX_COMMAND_LENGTH 100
 
 /**
- * _strdup - Duplicates a string
- * @str: The string to duplicate
- *
- * Return: The pointer to the duplicated string
+ * execute_command - Executes the given command
+ * @command: The command to execute
  */
-char *_strdup(const char *str)
+void execute_command(const char *command)
 {
-	char *dup;
-	int length = 0, i;
-
-	if (str == NULL)
-		return (NULL);
-
-	while (str[length])
-		length++;
-
-	dup = malloc(sizeof(char) * (length + 1));
-	if (dup == NULL)
-		return (NULL);
-
-	for (i = 0; i <= length; i++)
-		dup[i] = str[i];
-
-	return (dup);
+    int status = system(command);
+    if (status == -1)
+    {
+        printf("Error executing the command.\n");
+    }
 }
 
 /**
- * print_array - Prints an array of integers
- * @array: The array to print
- * @size: The size of the array
- */
-void print_array(const int *array, size_t size)
-{
-	size_t i;
-
-	if (array == NULL || size == 0)
-		return;
-
-	for (i = 0; i < size; i++)
-	{
-		printf("%d", array[i]);
-		if (i < size - 1)
-			printf(", ");
-	}
-	printf("\n");
-}
-
-/**
- * swap_int - Swaps the values of two integers
- * @a: The first integer
- * @b: The second integer
- */
-void swap_int(int *a, int *b)
-{
-	int temp;
-
-	if (a == NULL || b == NULL)
-		return;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-/**
- * main - Entry point
+ * main - Entry point of the program
  *
  * Return: Always 0
  */
 int main(void)
 {
-	int array[] = {5, 2, 4, 3, 1};
-	size_t size = sizeof(array) / sizeof(array[0]);
-	int i, j;
+    char command[MAX_COMMAND_LENGTH];
 
-	for (i = 0; i < size - 1; i++)
-	{
-		for (j = 0; j < size - i - 1; j++)
-		{
-			if (array[j] > array[j + 1])
-			{
-				swap_int(&array[j], &array[j + 1]);
-			}
-		}
-	}
+    while (1)
+    {
+        printf("simple_shell$ ");
 
-	print_array(array, size);
+        if (fgets(command, sizeof(command), stdin) == NULL)
+        {
+            printf("\n");
+            break;
+        }
 
-	return (0);
+        command[strcspn(command, "\n")] = '\0';
+
+        if (strcmp(command, "exit") == 0)
+            break;
+
+        execute_command(command);
+
+        printf("\n");
+    }
+
+    return 0;
 }
