@@ -1,50 +1,44 @@
-#include "main.h"
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
+#include "main.h"
 
-#define MAX_COMMAND_LENGTH 100
-
-/**
- * execute_command - Executes the given command
- * @command: The command to execute
- */
-void execute_command(const char *command)
+void execute_command(char *command)
 {
-    int status = system(command);
-    if (status == -1)
-    {
-        printf("Error executing the command.\n");
-    }
+    printf("Executing command: %s\n", command);
+    /* You can replace this with the actual execution logic
+     * Here, we simply print the command that would have been executed
+     */
 }
 
-/**
- * main - Entry point of the program
- *
- * Return: Always 0
- */
 int main(void)
 {
-    char command[MAX_COMMAND_LENGTH];
-
     while (1)
     {
-        printf("simple_shell$ ");
+        /* Display the prompt */
+        printf("$ ");
+        fflush(stdout);
 
+        /* Read the command from the user */
+        char command[MAX_COMMAND_LENGTH];
         if (fgets(command, sizeof(command), stdin) == NULL)
         {
+            /* Handle end of file condition (Ctrl+D) */
             printf("\n");
             break;
         }
 
+        /* Remove the trailing newline character */
         command[strcspn(command, "\n")] = '\0';
 
+        /* Check if the user wants to exit */
         if (strcmp(command, "exit") == 0)
+        {
             break;
+        }
 
+        /* Execute the command */
         execute_command(command);
-
-        printf("\n");
     }
 
     return 0;
