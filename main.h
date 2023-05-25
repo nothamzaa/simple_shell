@@ -1,8 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#define MAX_COMMAND_LENGTH 1024
+#include <stdio.h>
 
-void execute_command(char *command);
+/* Function Prototypes */
+void print_hello(void);
 
 #endif /* MAIN_H */
