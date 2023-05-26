@@ -1,6 +1,6 @@
 #include "header.h"
 /**
- * path_cmd -  Search In $PATH for executable command
+ * path_cmd -  Search In $PATH for the executable command
  * @cmd: Parsed input
  * Return: 0 on success or  1 on failure  0
  */
@@ -9,11 +9,11 @@ int path_cmd(char **cmd)
 	char *path, *value, *cmd_path;
 	struct stat buf;
 
-	path = _getenv("PATH");
+	path = _getenvironment("PATH");
 	value = _strtok(path, ":");
 	while (value != NULL)
 	{
-		cmd_path = build(*cmd, value);
+		cmd_path = build_cmd(*cmd, value);
 		if (stat(cmd_path, &buf) == 0)
 		{
 			*cmd = _strdup(cmd_path);
@@ -29,12 +29,12 @@ int path_cmd(char **cmd)
 	return (1);
 }
 /**
- * build - Build command
+ * build_cmd - Build command
  * @token: Executable command
  * @value: Directory conatining Command
  * Return: Parsed full path of command or NULL if failed
  */
-char *build(char *token, char *value)
+char *build_cmd(char *token, char *value)
 {
 	char *cmd;
 	size_t len;
@@ -60,7 +60,7 @@ char *build(char *token, char *value)
  * @name: Environment variable name
  * Return: The value of the environment variable or NULL if failed
  */
-char *_getenv(char *name)
+char *_getenvironment(char *name)
 {
 	size_t name_len, value_len;
 	char *value;

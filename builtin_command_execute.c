@@ -64,17 +64,17 @@ int echo_bul(char **cmd, int st)
 
 	if (_strncmp(cmd[1], "$?", 2) == 0)
 	{
-		print_number_int(st);
+		print_num_int(st);
 		PRINT("\n");
 	}
 	else if (_strncmp(cmd[1], "$$", 2) == 0)
 	{
-		print_number(pid);
+		print_num(pid);
 		PRINT("\n");
 	}
 	else if (_strncmp(cmd[1], "$PATH", 5) == 0)
 	{
-		path = _getenv("PATH");
+		path = _getenvironment("PATH");
 		PRINT(path);
 		PRINT("\n");
 		free(path);

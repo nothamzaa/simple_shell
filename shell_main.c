@@ -1,7 +1,7 @@
 #include "header.h"
 
 /**
- * main - Entry point to program
+ * main - Entry point to the program
  * @argc: Argument count
  * @argv: Argument vector
  * Return: Returns condition

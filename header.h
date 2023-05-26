@@ -87,15 +87,15 @@ void free_environment(char **env);
 
 
 
-void print_number(unsigned int n);
-void print_number_int(int n);
+void print_num(unsigned int n);
+void print_num_int(int n);
 int print_echo(char **cmd);
 
 
 
 int path_cmd(char **cmd);
-char *build(char *token, char *value);
-char *_getenv(char *name);
+char *build_cmd(char *token, char *value);
+char *_getenvironment(char *name);
 
 
 
