@@ -1,6 +1,6 @@
 #include "header.h"
 /**
- * _putchar - function that writes the character to stdout
+ * _putchar - the function that writes the character to stdout
  * @c: The character to print
  * Return: character to standard output
  */
@@ -9,11 +9,11 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
- * _puts - function that prints a string
+ * _prts - function that prints a string
  * @str: pointer to string
  * Return: void
  */
-void _puts(char *str)
+void _prts(char *str)
 {
 	int i;
 
@@ -24,7 +24,7 @@ void _puts(char *str)
 	_putchar('\n');
 }
 /**
- * _strncpy - function that copies a string
+ * _strcpy - the function that copies a string
  * @dest: destination string
  * @src: source string
  * @n: number of charaters to be copied
@@ -47,7 +47,7 @@ char *_strncpy(char *dest, char *src, int n)
 	return (dest);
 }
 /**
- * _strlen - function that counts the length of a string
+ * _strlen - the function that counts the length of a string
  * @s: string input
  * Return: length of string
  */
@@ -62,7 +62,7 @@ int _strlen(char *s)
 	return (i);
 }
 /**
- * _atoi - function to convert string to a integer
+ * _atoi - the function to convert string to a integer
  * @s: string input
  * Return: converted integer
  */

@@ -1,12 +1,12 @@
 #include "header.h"
 
 /**
- * separator - Separates command recieved from stdin by ;
+ * separator_ - Separates the command recieved from the stdin by ;
  * @input: String gathered from stdin
  * Return: Parsed strings to be used as commands
  */
 
-char **separator(char *input)
+char **separator_(char *input)
 {
 	char **commands;
 	char *command;

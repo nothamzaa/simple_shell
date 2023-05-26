@@ -1,6 +1,6 @@
 #include "header.h"
 /**
- * prompt - function that prints '$' to standard output
+ * prompt - the function that prints '$' to the standard output
  */
 void prompt(void)
 {

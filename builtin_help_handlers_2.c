@@ -47,19 +47,19 @@ int display_help(char **cmd, __attribute__((unused))int st)
 {
 	if (!cmd[1])
 		help_all();
-	else if (_strcmp(cmd[1], "alias") == 0)
+	else if (_strcmpa(cmd[1], "alias") == 0)
 		help_alias();
-	else if (_strcmp(cmd[1], "cd") == 0)
+	else if (_strcmpa(cmd[1], "cd") == 0)
 		help_cd();
-	else if (_strcmp(cmd[1], "exit") == 0)
+	else if (_strcmpa(cmd[1], "exit") == 0)
 		help_exit();
-	else if (_strcmp(cmd[1], "environment") == 0)
+	else if (_strcmpa(cmd[1], "environment") == 0)
 		help_environment();
-	else if (_strcmp(cmd[1], "setenv") == 0)
+	else if (_strcmpa(cmd[1], "setenv") == 0)
 		help_setenvironment();
-	else if (_strcmp(cmd[1], "unsetenv") == 0)
+	else if (_strcmpa(cmd[1], "unsetenv") == 0)
 		help_unsetenvironment();
-	else if (_strcmp(cmd[1], "help") == 0)
+	else if (_strcmpa(cmd[1], "help") == 0)
 		help_help();
 	return (0);
 }

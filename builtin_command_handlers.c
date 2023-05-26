@@ -24,7 +24,7 @@ int check_builtin(char **cmd)
 	}
 	while ((fun + i)->command)
 	{
-		if (_strcmp(cmd[0], (fun + i)->command) == 0)
+		if (_strcmpa(cmd[0], (fun + i)->command) == 0)
 			return (0);
 		i++;
 	}
@@ -52,7 +52,7 @@ int handle_builtin(char **cmd, int st)
 
 	while ((built_in + i)->command)
 	{
-		if (_strcmp(cmd[0], (built_in + i)->command) == 0)
+		if (_strcmpa(cmd[0], (built_in + i)->command) == 0)
 		{
 			return ((built_in + i)->function(cmd, st));
 		}
@@ -82,7 +82,7 @@ void exit_bul(char **cmd, char *input, char **argv, int c, int stat)
 	}
 	while (cmd[1][i])
 	{
-		if (_isalpha(cmd[1][i++]) != 0)
+		if (_isalphabet(cmd[1][i++]) != 0)
 		{
 			_prerr(argv, c, cmd);
 			free(input);

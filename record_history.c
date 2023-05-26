@@ -1,10 +1,10 @@
 #include "header.h"
 /**
- * history - write file with user inputs
+ * _history - write a file with the user inputs
  * @input: user input
  * Return: 0 on success -1 if failed
  */
-int history(char *input)
+int _history(char *input)
 {
 	char *filename = ".simple_shell_history";
 	ssize_t fd, w;

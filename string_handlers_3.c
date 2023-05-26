@@ -1,11 +1,11 @@
 #include "header.h"
 /**
- * _strcmp - function that compares two string
+ * _strcmpa - the function that compares two string
  * @s1: first string
  * @s2: second string
  * Return: 0 if identical otherwise how much diffrent
  */
-int _strcmp(char *s1, char *s2)
+int _strcmpa(char *s1, char *s2)
 {
 	int cmp = 0, i, len1, len2;
 
@@ -31,11 +31,11 @@ int _strcmp(char *s1, char *s2)
 	return (cmp);
 }
 /**
- * _isalpha - function to check if c is alphabet
+ * _isalphabet - the function to check if c is alphabet
  * @c: character to check
  * Return: 1 if true 0 if false
  */
-int _isalpha(int c)
+int _isalphabet(int c)
 {
 	if (((c >= 97) && (c <= 122)) || ((c >= 65) && (c <= 90)))
 	{
@@ -47,7 +47,7 @@ int _isalpha(int c)
 	}
 }
 /**
- * _itoa - funciton that convert integer to character
+ * _itoa - the funciton that convert integer to character
  * @n: integer to convert
  * Return: character pointer
  */
@@ -80,7 +80,7 @@ char *_itoa(unsigned int n)
 	return (s);
 }
 /**
- * array_rev - function reverse an array
+ * array_rev - the function reverse an array
  * @arr: array to reverse
  * @len: length of array
  */
@@ -97,7 +97,7 @@ void array_rev(char *arr, int len)
 	}
 }
 /**
- * intlen - function that determine length of integer
+ * intlen - the function that determine length of integer
  * @num: given integer
  * Return: length of integer
  */

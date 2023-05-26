@@ -27,15 +27,15 @@ char *_strncpy(char *dest, char *src, int n);
 int _strlen(char *s);
 int _putchar(char c);
 int _atoi(char *s);
-void _puts(char *str);
-int _strcmp(char *s1, char *s2);
-int _isalpha(int c);
+void _prts(char *str);
+int _strcmpa(char *s1, char *s2);
+int _isalphabet(int c);
 void array_rev(char *arr, int len);
 int intlen(int num);
 char *_itoa(unsigned int n);
-char *_strcat(char *dest, char *src);
+char *_strcate(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
-char *_strchr(char *s, char c);
+char *_strchra(char *s, char c);
 int _strncmp(const char *s1, const char *s2, size_t n);
 char *_strdup(char *str);
 
@@ -57,8 +57,8 @@ void hashtag_handler(char *buff);
 void prompt(void);
 unsigned int check_delim(char c, const char *str);
 char *_strtok(char *str, const char *delim);
-int history(char *input);
-char **separator(char *input);
+int _history(char *input);
+char **separator_(char *input);
 
 
 
@@ -70,7 +70,7 @@ void exit_bul_f_file(char **cmd, char *line, FILE *fd);
 
 char **parse_cmmd(char *input);
 int handle_builtin(char **cmd, int er);
-int check_cmd(char **cmd, char *input, int c, char **argv);
+int checker_cmd(char **cmd, char *input, int c, char **argv);
 void signal_to_handle(int sig);
 
 
@@ -126,7 +126,7 @@ int history_display(__attribute__((unused))char **c,
 
 
 /**
- * struct _builtin - Defines a struct that conatins built-in commands
+ * struct _builtin - Defines a struct that conatins the built-in commands
  * with their respective implementation functions
  * @command: - Built-in command
  * @function: - Pointer to custom functions that have

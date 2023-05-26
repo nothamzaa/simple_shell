@@ -1,6 +1,6 @@
 #include "header.h"
 /**
- * _strcpy - function that copies a string
+ * _strcpy - the function that copies a string
  * @dest: destination
  * @src: source
  * Return: destination
@@ -18,12 +18,12 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 /**
- * _strcat - function that concatenates two strings
+ * _strcate - the function that concatenates two strings
  * @dest: first string
  * @src: second string
  * Return: first string + second string
  */
-char *_strcat(char *dest, char *src)
+char *_strcate(char *dest, char *src)
 {
 	char *s = dest;
 
@@ -42,12 +42,12 @@ char *_strcat(char *dest, char *src)
 	return (s);
 }
 /**
- * _strchr - function that locates character in a string
+ * _strchra - the function that locates character in a string
  * @s: string to be searched
  * @c: character to be located
  * Return: pointer to character
  */
-char *_strchr(char *s, char c)
+char *_strchra(char *s, char c)
 {
 	do {
 		if (*s == c)

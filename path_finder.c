@@ -49,9 +49,9 @@ char *build_cmd(char *token, char *value)
 
 	memset(cmd, 0, len);
 
-	cmd = _strcat(cmd, value);
-	cmd = _strcat(cmd, "/");
-	cmd = _strcat(cmd, token);
+	cmd = _strcate(cmd, value);
+	cmd = _strcate(cmd, "/");
+	cmd = _strcate(cmd, token);
 
 	return (cmd);
 }

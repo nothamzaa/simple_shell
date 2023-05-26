@@ -24,12 +24,12 @@ int main(__attribute__((unused)) int argc, char **argv)
 		input = _getline();
 		if (input[0] == '\0')
 			continue;
-		history(input);
-		commands = separator(input);
+		_history(input);
+		commands = separator_(input);
 		for (i = 0; commands[i] != NULL; i++)
 		{
 			cmd = parse_cmmd(commands[i]);
-			if (_strcmp(cmd[0], "exit") == 0)
+			if (_strcmpa(cmd[0], "exit") == 0)
 			{
 				free(commands);
 				exit_bul(cmd, input, argv, count, stat);
@@ -42,18 +42,18 @@ int main(__attribute__((unused)) int argc, char **argv)
 			}
 			else
 			{
-				stat = check_cmd(cmd, input, count, argv);
+				stat = checker_cmd(cmd, input, count, argv);
 			}
-			/*if (commands[i + 1] == NULL)
-			{
-				free(commands);
-				break;
-			}*/
-			free(cmd);
-		}
-		free(input);
-		free(commands);
-		wait(&stat);
-	}
+/*if (commands[i + 1] == NULL)
+{
+free(commands);
+break;
+}*/
+free(cmd);
+}
+free(input);
+free(commands);
+wait(&stat);
+}
 	return (stat);
 }

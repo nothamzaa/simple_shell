@@ -12,7 +12,7 @@ int change_directory(char **cmd, __attribute__((unused))int st)
 
 	if (cmd[1] == NULL)
 		value = chdir(getenv("HOME"));
-	else if (_strcmp(cmd[1], "-") == 0)
+	else if (_strcmpa(cmd[1], "-") == 0)
 	{
 		value = chdir(getenv("OLDPWD"));
 	}

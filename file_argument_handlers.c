@@ -54,7 +54,7 @@ void trt_file(char *line, int count, FILE *fp, char **argv)
 	}
 	else
 	{
-		stat = check_cmd(cmd, line, count, argv);
+		stat = checker_cmd(cmd, line, count, argv);
 		free(cmd);
 	}
 }
@@ -80,7 +80,7 @@ void exit_bul_f_file(char **cmd, char *line, FILE *fd)
 	}
 	while (cmd[1][i])
 	{
-		if (_isalpha(cmd[1][i++]) < 0)
+		if (_isalphabet(cmd[1][i++]) < 0)
 			perror("Illegal number");
 	}
 	status = _atoi(cmd[1]);

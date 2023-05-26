@@ -1,7 +1,7 @@
 #include "header.h"
 
 /**
- * check_cmd - Excutes commands found in predefined path
+ * checker_cmd - Excutes commands that found in predefined path
  * @cmd: Array of parsed command strings
  * @input: Input recieved from user (to be freed)
  * @c:Shell Excution Time Case of Command Not Found
@@ -9,7 +9,7 @@
  * Return: 1 Case Command Null -1 Wrong Command 0 Command Excuted
  */
 
-int check_cmd(char **cmd, char *input, int c, char **argv)
+int checker_cmd(char **cmd, char *input, int c, char **argv)
 {
 	int wstatus;
 	pid_t pid;
